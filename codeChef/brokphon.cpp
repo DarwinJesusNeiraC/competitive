@@ -1,7 +1,7 @@
 /*
 * @Autor: Darwin Neira Carrasco
 * @Email: dneirac@unsa.edu.pe
-* @File: playfit
+* @File: brokphon
 * @Descripcion:
 */
 
@@ -14,19 +14,23 @@ using namespace std;
 #define INF 2e9
 
 void solve(){
-  int n; cin>>n;
-  int dp[n];
+  int n;cin>>n;
+  int arr[n]={0};
+  int arb[n]={0};
+  for(int i=0;i<n;i++)
+    cin>>arr[i];
+  int count=0;
+  for(int i=0;i<n-1;i++){
+    if(arr[i]!=arr[i+1]){
+      arb[i]=1;
+      arb[i+1]=1;
+    }
+  }
 
   for(int i=0;i<n;i++)
-    cin>>dp[i];
+    count+=arb[i];
+  cout<<count<<endl;
 
-  int res=dp[0];
-  int ans=0;
-  for(int i=1;i<n;i++)
-    res=min(res, dp[i]),ans=(dp[i]>res)?max(dp[i]-res, ans):ans;
-
-  if(ans) cout<<ans<<endl;
-  else cout<<"UNFIT"<<endl;
 }
 
 int main(){

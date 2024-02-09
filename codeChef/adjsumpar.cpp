@@ -1,7 +1,7 @@
 /*
 * @Autor: Darwin Neira Carrasco
 * @Email: dneirac@unsa.edu.pe
-* @File: playfit
+* @File: adjsumpar
 * @Descripcion:
 */
 
@@ -14,19 +14,13 @@ using namespace std;
 #define INF 2e9
 
 void solve(){
-  int n; cin>>n;
-  int dp[n];
-
-  for(int i=0;i<n;i++)
-    cin>>dp[i];
-
-  int res=dp[0];
-  int ans=0;
-  for(int i=1;i<n;i++)
-    res=min(res, dp[i]),ans=(dp[i]>res)?max(dp[i]-res, ans):ans;
-
-  if(ans) cout<<ans<<endl;
-  else cout<<"UNFIT"<<endl;
+  int n;cin>>n;
+  int sum=0;
+  while(n--){
+    int num;cin>>num;
+    sum+=num;
+  }
+  cout << ((sum%2) ? "NO": "YES") << endl;
 }
 
 int main(){

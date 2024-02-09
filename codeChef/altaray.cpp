@@ -1,7 +1,7 @@
 /*
 * @Autor: Darwin Neira Carrasco
 * @Email: dneirac@unsa.edu.pe
-* @File: playfit
+* @File: altaray
 * @Descripcion:
 */
 
@@ -14,19 +14,27 @@ using namespace std;
 #define INF 2e9
 
 void solve(){
-  int n; cin>>n;
-  int dp[n];
+  int n;cin>>n;
+  vector<ll> dp(n,1);
+  vector<ll> arr(n,0);
 
   for(int i=0;i<n;i++)
-    cin>>dp[i];
+    cin>>arr[i];
 
-  int res=dp[0];
-  int ans=0;
-  for(int i=1;i<n;i++)
-    res=min(res, dp[i]),ans=(dp[i]>res)?max(dp[i]-res, ans):ans;
+  // n = 4
+  // 1 -5 1 -5
+  // 0  1 2  3
+  // 1  1 2  1
+  for(int i=n-1;i>0;i--){
+    if(arr[i] * arr[i-1] < 0){
+      dp[i-1]+=dp[i];
+    }
+  }
 
-  if(ans) cout<<ans<<endl;
-  else cout<<"UNFIT"<<endl;
+  for(int i=0;i<n;i++){
+    cout<<dp[i]<<" ";
+  }
+  cout<<endl;
 }
 
 int main(){

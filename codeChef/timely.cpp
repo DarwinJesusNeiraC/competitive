@@ -1,7 +1,7 @@
 /*
 * @Autor: Darwin Neira Carrasco
 * @Email: dneirac@unsa.edu.pe
-* @File: playfit
+* @File: timely
 * @Descripcion:
 */
 
@@ -14,19 +14,11 @@ using namespace std;
 #define INF 2e9
 
 void solve(){
-  int n; cin>>n;
-  int dp[n];
-
-  for(int i=0;i<n;i++)
-    cin>>dp[i];
-
-  int res=dp[0];
-  int ans=0;
-  for(int i=1;i<n;i++)
-    res=min(res, dp[i]),ans=(dp[i]>res)?max(dp[i]-res, ans):ans;
-
-  if(ans) cout<<ans<<endl;
-  else cout<<"UNFIT"<<endl;
+  int x;cin >> x;
+  if(x>=30)
+    cout<<"YES"<<endl;
+  else
+    cout<<"NO"<<endl;
 }
 
 int main(){
